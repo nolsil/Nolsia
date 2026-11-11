@@ -1,5 +1,11 @@
 import Quickshell
 
 ShellRoot {
-    Bar {}
+    Config {
+        id: settings
+    }
+
+    Bar {
+        config: settings
+    }
 }

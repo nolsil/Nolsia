@@ -3,6 +3,7 @@ import Quickshell
 
 PanelWindow {
     id: bar
+    required property var config
 
     anchors {
         left: true
@@ -24,10 +25,22 @@ PanelWindow {
             anchors.top: parent.top
             spacing: 8
 
-            Rectangle {
-                width: parent.width
-                height: 42
-                color: "#313244"
+            Repeater {
+                model: bar.config.zones.start
+
+                delegate: Loader {
+                    required property var modelData
+
+                    width: parent.width
+                    height: 42
+
+                    Component.onCompleted: {
+                        setSource("widgets/" + modelData.type + ".qml", {
+                            config: bar.config,
+                            widgetData: modelData
+                        });
+                    }
+                }
             }
         }
 
@@ -37,10 +50,22 @@ PanelWindow {
             anchors.verticalCenter: parent.verticalCenter
             spacing: 8
 
-            Rectangle {
-                width: parent.width
-                height: 42
-                color: "#313244"
+            Repeater {
+                model: bar.config.zones.center
+
+                delegate: Loader {
+                    required property var modelData
+
+                    width: parent.width
+                    height: 42
+
+                    Component.onCompleted: {
+                        setSource("widgets/" + modelData.type + ".qml", {
+                            config: bar.config,
+                            widgetData: modelData
+                        });
+                    }
+                }
             }
         }
 
@@ -50,10 +75,22 @@ PanelWindow {
             anchors.bottom: parent.bottom
             spacing: 8
 
-            Rectangle {
-                width: parent.width
-                height: 42
-                color: "#313244"
+            Repeater {
+                model: bar.config.zones.end
+
+                delegate: Loader {
+                    required property var modelData
+
+                    width: parent.width
+                    height: 42
+
+                    Component.onCompleted: {
+                        setSource("widgets/" + modelData.type + ".qml", {
+                            config: bar.config,
+                            widgetData: modelData
+                        });
+                    }
+                }
             }
         }
     }

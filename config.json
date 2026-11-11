@@ -3,16 +3,22 @@
     "barThickness": 70,
     "cornerRadius": 22,
     "fontSize": 14,
-    "nextId": 7,
+    "nextId": 8,
     "textColor": "#cdd6f4",
     "widgetColor": "#313244",
+
+    "nextId": 8,
     "zones": {
-        "start": [
-            
-                   ],
-        "center": [
-        ],
-        "end": [
-                   ]
-    }
+    "start": [
+        {
+            "id": 7,
+            "type": "ClockWidgets"
+        }
+
+    ],
+    "center": [
+
+    ],
+    "end": []
 }
+    }
